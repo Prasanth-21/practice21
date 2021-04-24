@@ -1,0 +1,25 @@
+echo "Loading the Highest CPU Utilizing process" 
+
+CPU_Usage=ps -eo pid,cmd,%cpu,%mem --sort=-%mem  | head -n 2
+
+while true:
+
+do 
+
+kill CPU_Usage
+
+if [ $? -eq 0 ]
+
+then
+
+echo "$pid is killed gracefully"
+
+exit
+
+else 
+
+sleep 5
+
+fi
+
+done
